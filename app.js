@@ -97,14 +97,4 @@ app.use(function(err, req, res, next) {
     });
 });
 
-//de momento se comenta luego, en producción la pongo
-/*
-process.on('SIGINT', function(){
-  console.log('No me vas a hacer caer');
-});
-process.on('SIGHUP', function(){
-  console.log('De esta manera, tampoco');
-});
-*/
-
 module.exports = app;
