@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 var flash = require('express-flash');
 var fs = require('fs');
 var mime = require('mime');
+var md5 = require('MD5');
 
 var routes = require('./routes/index');
 
@@ -45,6 +46,7 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 
 app.locals.url_java = process.env.JAVASERVER_URL || 'http://localhost:8093';
+app.locals.url_almacenamiento = process.env.STORAGE_URL || 'http://localhost:8099';
 
 app.locals.escapeText =  function(text) {
    return String(text)
@@ -64,6 +66,9 @@ app.locals.getLeida = function(leida){
  l = ['No','Sí'];
  return l[leida];
 } 
+app.locals.getMD5 = function(st){
+   return md5(st);
+}
 
 
 /// catch 404 and forwarding to error handler
