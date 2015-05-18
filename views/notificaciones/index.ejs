@@ -20,6 +20,9 @@
 		<img src="/images/emisoras/<%= grabs[i].radio %>.jpg" class="icono">  <label>  <%= new Date(grabs[i].inicio).toLocaleString() %>  |  <%= grabs[i].duracion %> minutos</label>
 	</div>
 	<div class="col-xs-4 col-md-3 no-gutter">
+		<div class="col-xs-2">
+			<a class="btn btn-danger" href="<%= url_almacenamiento %>/delete/<%- getMD5(grabs[i].id)/grabs[i].id"><i class="glyphicon glyphicon-trash"></i></a>
+		</div>
 		<div class="col-xs-6">
 			<a class="btn btn-custom-reverse" href="<%= url_java %>/grabaciones/<%= grabs[i].id %>.mp3"><i class="glyphicon glyphicon-save" style="vertical-align: bottom;"></i> Descargar</a>
 		</div>
